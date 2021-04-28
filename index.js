@@ -10,11 +10,12 @@ import postRoutes from './routes/post.js';
 const app = express();
 
 // middleware
-app.use('/post', postRoutes); // cada ruta dentro post.js empieza con post www.----/post
 
 app.use(bodyParser.json({limit:"30mb", extended: true}));
 app.use(bodyParser.urlencoded({limit:"30mb", extended: true}));
 app.use(cors());
+
+app.use('/post', postRoutes); // cada ruta dentro post.js empieza con post www.----/post
 
 // mongodb atlas
 const CONNECTION_URL = 'mongodb+srv://messenzani01:21RodrigoM@cluster0.8wt95.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
